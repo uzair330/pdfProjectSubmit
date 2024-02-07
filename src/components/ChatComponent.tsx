@@ -8,6 +8,7 @@ import MessageList from "./MessageList";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Message } from "ai";
+import { ScrollArea } from "./ui/scroll-area";
 
 type Props = { chatId: number };
 
@@ -40,26 +41,27 @@ const ChatComponent = ({ chatId }: Props) => {
   }, [messages]);
   return (
     <div
-      className="relative max-h-screen overflow-scroll"
+      className="relative max-h-screen "
       id="message-container"
     >
       {/* header */}
-      <div className="sticky top-0 inset-x-0 p-2 bg-white h-fit">
-        <h3 className="text-xl font-bold">Chat</h3>
+      <div className=" h-fit">
+        {/* <h3 className="text-xl font-bold fixed bg-slate-800 opacity-50 rounded-md text-white px-4">Chat</h3> */}
       </div>
-
+      <ScrollArea className="h-400 w-full rounded-md border ">
       {/* message list */}
       <MessageList messages={messages} isLoading={isLoading} />
+</ScrollArea> 
 
       <form
         onSubmit={handleSubmit}
-        className="sticky bottom-0 inset-x-0 px-2 py-4 bg-white"
+        className="sticky bottom-0 inset-x-0 px-2 py-4  bg-white"
       >
         <div className="flex">
           <Input
             value={input}
             onChange={handleInputChange}
-            placeholder="Ask any question..."
+            placeholder="chat with pdf..."
             className="w-full"
           />
           <Button className="bg-blue-600 ml-2">
