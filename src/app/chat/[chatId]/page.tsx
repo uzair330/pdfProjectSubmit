@@ -50,33 +50,24 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
     //   </div>
     // </div>
 
-<div className="flex items-center  gap-4">
+<div className="flex    gap-4">
   <div className="">
     {/* chat sidebar */}
          <div className="">
            <ChatSideBar chats={_chats} chatId={parseInt(chatId)} isPro={isPro} />
         </div>
   </div>
-  <div className="flex flex-col justify-between h-full">
-<div className="pt-12 pb-4">
-
-<h1 className="text-4xl font-semibold text-center">
-  Chat with Pdf using AI
-</h1>
-
-<p></p>
-
-
-  
-</div>
-<div className="">
-
-          <ChatComponent chatId={parseInt(chatId)} />     
-
-</div>
-
+ <div className="flex flex-col justify-between mx-4  ">
+  <div className="pt-20  font-bold text-xl md:text-2xl">
+  Navigating PDF Documents with AI
   </div>
+  <p>New erra of artificial intelegence</p>
+
+  <div className="mr-4">
+      <ChatComponent chatId={parseInt(chatId)} />
   
+ </div>
+  </div>
 
 
 </div>
