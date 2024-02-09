@@ -1,15 +1,32 @@
 "use client";
 import React from "react";
-import { Input } from "./ui/input";
+
 import { useChat } from "ai/react";
-import { Button } from "./ui/button";
+
 import { Send } from "lucide-react";
 import MessageList from "./MessageList";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Message } from "ai";
 import { ScrollArea } from "./ui/scroll-area";
-
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 type Props = { chatId: number };
 
 const ChatComponent = ({ chatId }: Props) => {
@@ -74,7 +91,15 @@ const ChatComponent = ({ chatId }: Props) => {
 <div className="">
 <ScrollArea className="h-72 w-full rounded-md border ">
       {/* message list */}
+      <Card className="w-[100%] h-[100%] border border-none">
+      
+      <CardContent>
       <MessageList messages={messages} isLoading={isLoading} />
+      </CardContent>
+    
+    </Card>
+
+      {/* <MessageList messages={messages} isLoading={isLoading} /> */}
 </ScrollArea> 
 </div>
 

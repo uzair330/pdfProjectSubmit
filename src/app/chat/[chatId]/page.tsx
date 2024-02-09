@@ -1,6 +1,6 @@
 import ChatComponent from "@/components/ChatComponent";
 import ChatSideBar from "@/components/ChatSideBar";
-import PDFViewer from "@/components/PDFViewer";
+
 import { db } from "@/lib/db";
 import { chats } from "@/lib/db/schema";
 import { checkSubscription } from "@/lib/subscription";
@@ -9,6 +9,19 @@ import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import PDFViewer from "@/components/PDFViewer";
 
 type Props = {
   params: {
@@ -58,15 +71,41 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
         </div>
   </div>
  <div className="flex flex-col justify-between mx-4  ">
+ 
+<div className="flex justify-between">
+
   <div className="pt-20  font-bold text-xl md:text-2xl">
   Navigating PDF Documents with AI
   </div>
+
+  <div className="pt-20 ">
+  <Dialog
+ 
+>
+      <DialogTrigger asChild>
+      {/* <div className="border text-xs border-white p-2 rounded-md mx-2">
+  
+</div> */}
+        <Button
+        variant={"destructive"}
+        className="border sm:text-[8px] text-sm truncate p-2 rounded-md mx-2"
+        >View PDF</Button>
+      </DialogTrigger>
+      <DialogContent className="w-[100%] h-[80%] ">
+        
+        <PDFViewer pdf_url={currentChat?.pdfUrl || ""} />
+        
+      </DialogContent>
+    </Dialog>
+  </div>
+</div>
   <p>New erra of artificial intelegence</p>
 
   <div className="mr-4">
       <ChatComponent chatId={parseInt(chatId)} />
   
  </div>
+
   </div>
 
 

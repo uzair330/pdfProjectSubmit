@@ -8,8 +8,6 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-// https://github.com/aws/aws-sdk-js-v3/issues/4126
-
 const FileUpload = () => {
   const router = useRouter();
   const [uploading, setUploading] = React.useState(false);
@@ -76,7 +74,7 @@ const FileUpload = () => {
         <input {...getInputProps()} />
         {uploading || isLoading ? (
           <>
-            {/* loading state */}
+            
             <Loader2 className="h-10 w-10 text-blue-500 animate-spin" />
             <p className="mt-2 text-xs text-slate-400">
               Uploading...
