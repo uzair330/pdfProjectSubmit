@@ -1,11 +1,11 @@
 import { UserButton } from '@clerk/nextjs'
-import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className='flex justify-between fixed  w-full p-4 '>
-      <div className="text-white"></div>
-      <div className="">
+    <div className='flex justify-end fixed w-full p-4 '>
+    
+      
+      <div className="flex justify-end">
 
       <UserButton afterSignOutUrl="/" />
       </div>
