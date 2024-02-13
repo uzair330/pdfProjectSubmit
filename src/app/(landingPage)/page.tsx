@@ -1,3 +1,4 @@
+import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import { chats } from "@/lib/db/schema";
@@ -70,6 +71,11 @@ export default async function Home() {
                   </div>
               </div> */}
 
+{!firstChat?
+              <div className="pb-4 w-70%">
+                <FileUpload />
+              </div>
+              :""}
 
 <div className="grid grid-cols-2 items-center justify-center sm:grid-cols-4">
 <div className=" flex justify-center items-center">

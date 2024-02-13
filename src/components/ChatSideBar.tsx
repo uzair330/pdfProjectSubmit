@@ -6,10 +6,9 @@ import { MessageCircle, PlusCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import SubscriptionButton from "./SubscriptionButton";
 import FileUpload from "./FileUpload";
-
-
-
-
+import Image from "next/image";
+import { Card, CardContent } from "./ui/card";
+import { ScrollArea } from "./ui/scroll-area";
 
 type Props = {
   chats: DrizzleChat[];
@@ -18,12 +17,27 @@ type Props = {
 };
 
 const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
-  const [loading, setLoading] = React.useState(false);
-
+ 
   return (
     <div className=" h-screen  p-4 text-gray-200 bg-gray-900 flex flex-col justify-between w-72 md:w-96 ">
+      <h1 className="font-bold text-2xl pb-4 text-blue-700 flex justify-center items-center">
+         
+         Navigating-PDF</h1>
+
+      <Card className="h-full mb-4 bg-slate-900">
+         <ScrollArea>
+          
+  
+  <CardContent className="">
+    
+  
+
+
+
+
+
           <div className="flex max-h-screen  flex-col gap-2 mt-3 ">
-        <h1 className="font-bold text-2xl pb-4 text-blue-700">Navigating-PDF</h1>
+        
              {chats.map((chat) => (
 
           <div className="flex justify-between items-center bg-slate-800 rounded-md p-2 ">
@@ -31,7 +45,7 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
             
             <div
               className={cn("rounded-lg p-3 text-slate-300 flex items-center justify-between w-[65%]", {
-                "bg-blue-600 text-white gap-y-2 w-[65%] ": chat.id === chatId,
+                "bg-green-600 text-white gap-y-2 w-[65%] ": chat.id === chatId,
                 "hover:text-white ": chat.id !== chatId,
               })}
               >
@@ -47,31 +61,25 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
           </Link>
             </div>
 
-
-           
-
-
-
-
-
-
-<div className="">
-
-            <X 
-            
+{/* Logic for Deleting Data.. */}
+{/* <div className="">
+            <X             
             className="text-red-600 bg-slate-900 rounded-md p-1 shadow-sm"
             />
-            </div>
+ </div> */}
           
-              </div>
+ </div>
         ))}
         
       </div>
       
+      </CardContent>
+  
+         </ScrollArea>
+</Card>
+
         <FileUpload />
-      <div className="flex justify-start">
-                  <SubscriptionButton isPro={isPro} />
-                </div>
+      
 
    
     </div>
