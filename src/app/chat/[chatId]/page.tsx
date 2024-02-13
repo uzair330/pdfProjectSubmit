@@ -3,6 +3,7 @@ import ChatSideBar from "@/components/ChatSideBar";
 
 import PDFViewer from "@/components/PDFViewer";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -41,42 +42,36 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
   return (
     
 
-<div className="flex    gap-4">
-  <div className="">
+<div className="md:flex">
+ 
     {/* chat sidebar */}
   
          <div className="">
            <ChatSideBar chats={_chats} chatId={parseInt(chatId)} isPro={isPro} />
         </div>
-  </div>
+  
+ <Card>
+  
  <div className="flex flex-col justify-between mx-4  ">
- 
-<div className="flex justify-between">
+<div className="flex justify-between ">
 
   <div className="pt-20  font-bold text-xl md:text-2xl">
   Navigating PDF Documents with AI
   </div>
 
   <div className="pt-20 ">
-  <Dialog
- 
->
+  <Dialog>
       <DialogTrigger asChild>
-      {/* <div className="border text-xs border-white p-2 rounded-md mx-2">
-  
-</div> */}
         <Button
         variant={"destructive"}
         className="border sm:text-[8px] text-sm truncate p-2 rounded-md mx-2"
         >View PDF</Button>
- 
-
-      </DialogTrigger>
-      <DialogContent className="w-[100%] h-[80%] ">
+     </DialogTrigger>
+         <DialogContent className="w-[100%] h-[80%] ">
         
-        <PDFViewer pdf_url={currentChat?.pdfUrl || ""} />
+           <PDFViewer pdf_url={currentChat?.pdfUrl || ""} />
         
-      </DialogContent>
+       </DialogContent>
     </Dialog>
   </div>
 </div>
@@ -89,7 +84,8 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
 
 
   </div>
-
+  
+  </Card>
 </div>
 
 
