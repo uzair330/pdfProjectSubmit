@@ -1,12 +1,9 @@
 "use client";
 import { DrizzleChat } from "@/lib/db/schema";
-import Link from "next/link";
-import React from "react";
-import { MessageCircle, PlusCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import SubscriptionButton from "./SubscriptionButton";
+import { MessageCircle, MessagesSquare } from "lucide-react";
+import Link from "next/link";
 import FileUpload from "./FileUpload";
-import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { ScrollArea } from "./ui/scroll-area";
 
@@ -20,8 +17,8 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
  
   return (
     <div className=" h-screen  p-4 text-gray-200 bg-gray-900 flex flex-col justify-between w-72 md:w-96 ">
-      <h1 className="font-bold text-2xl pb-4 text-blue-700 flex justify-center items-center">
-         
+      <h1 className="font-bold text-2xl pb-4 text-white flex justify-center items-center gap-2">
+      <MessagesSquare />
          Navigating-PDF</h1>
 
       <Card className="h-full mb-4 bg-slate-900">
