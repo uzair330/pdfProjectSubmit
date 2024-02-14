@@ -50,20 +50,26 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
            <ChatSideBar chats={_chats} chatId={parseInt(chatId)} isPro={isPro} />
         </div>
   
- <Card>
+ <Card className="border-none w-[80%] h-[100%] justify-center items-center pt-20 pb-4">
   
  <div className="flex flex-col justify-between mx-4  ">
-<div className="flex justify-between ">
 
-  <div className="pt-20  font-bold text-xl md:text-2xl">
+
+ 
+<div >
+  <span className="pt-20  font-bold text-xl md:text-2xl">
   Navigating PDF Documents with AI
-  </div>
-
-  <div className="pt-20 ">
+  </span>
+  <br />
+  <span>
+    New erra of artificial intelegence
+  </span>
+</div>
+  <div className="pt-4 pb-2 flex flex-grow justify-end">
   <Dialog>
       <DialogTrigger asChild>
         <Button
-        variant={"destructive"}
+        variant={"default"}
         className="border sm:text-[8px] text-sm truncate p-2 rounded-md mx-2"
         >View PDF</Button>
      </DialogTrigger>
@@ -74,8 +80,8 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
        </DialogContent>
     </Dialog>
   </div>
-</div>
-  <p>New erra of artificial intelegence</p>
+
+  
 
   <div className="mr-4">
       <ChatComponent chatId={parseInt(chatId)} />
